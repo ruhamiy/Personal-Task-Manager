@@ -14,6 +14,9 @@ const pool = mysql.createPool({
   database: process.env.DB_NAME,
   timezone: "Z",
   dateStrings: true,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 // Test the database connection - remove this in production - could cause errors 
 pool.getConnection((err, connection) => {
