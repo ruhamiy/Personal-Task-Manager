@@ -25,17 +25,17 @@ const AddTask = () => {
   const handleSubmit = async (data: any) => {
   try {
     if (task) {
-      // ✅ UPDATE TASK
+      // UPDATE TASK
       await updateTask(task.id, {
         ...data,
         status: task.status,
       });
 
-      // ✅ REASSIGN CATEGORY (simple version)
+      // REASSIGN CATEGORY (simple version)
       await assignCategoryToTask(task.id, data.categoryId);
 
     } else {
-      // ✅ CREATE TASK
+      // CREATE TASK
       const newTask = await createTask(data);
 
       if (data.categoryId) {
@@ -43,7 +43,7 @@ const AddTask = () => {
       }
     }
 
-    // ✅ REDIRECT AFTER SUCCESS
+    // REDIRECT AFTER SUCCESS
     navigate("/tasks");
 
   } catch (err) {

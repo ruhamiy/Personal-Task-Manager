@@ -1,5 +1,3 @@
-// /home/abigu/internship/personal-task-manager/Personal-Task-Manager/client/src/components/TaskForm.tsx
-
 import React, { useState } from 'react';
 import '../styles/TaskForm.css'; // Import the CSS file
 import type { Category } from '../types/types';
@@ -19,8 +17,9 @@ interface TaskFormProps {
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, categories }) => {
-  const isEditMode = !!initialData;
+  const isEditMode = !!initialData; // changes initialdate to boolean to check if we are in edit mode or not
   const [formData, setFormData] = useState<TaskFormData>({
+    // if initialData exists(edit mode), use its values; otherwise, use defaults - empty
     title: initialData?.title || '',
     description: initialData?.description || '',
     priority: initialData?.priority || 'Moderate',
@@ -29,6 +28,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialData, categories }
   });
 
   const handleChange = (
+    // handle change for all input types - text, textarea, select
   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
 ) => {
   const { name, value } = e.target;

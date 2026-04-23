@@ -38,7 +38,6 @@ export const assignCategoryToTask = async (taskId: number, categoryId: number) =
   return res.data;
 };
 // GET tasks by category
-// GET tasks by category
 export const getTasksByCategory = async (categoryId: number) => {
   const res = await API.get(`/tasks/category/${categoryId}`);
   return res.data;
